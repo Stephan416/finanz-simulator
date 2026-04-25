@@ -246,35 +246,33 @@ with eingabe_spalte:
 
     # Freiheitsgrade der t-Verteilung.
     # Niedriger = mehr extreme Ausschläge.
-    # Marktrisiko verständlich auswählen.
-# Intern wird daraus der Freiheitsgrad der t-Verteilung bestimmt.
-marktrisiko = st.selectbox(
-    "Marktrisiko",
-    options=[
-        "Normale Märkte",
-        "Leicht erhöhte Extremereignisse",
-        "Starke Extremereignisse"
-    ],
-    index=1
-)
+     marktrisiko = st.selectbox(
+        "Marktrisiko",
+        options=[
+            "Normale Märkte",
+            "Leicht erhöhte Extremereignisse",
+            "Starke Extremereignisse"
+        ],
+        index=1
+    )
 
-# Normale Märkte: fast wie Normalverteilung.
-# Leicht erhöhte Extremereignisse: realistischer Standardmodus.
-# Starke Extremereignisse: mehr Crash- und Boomphasen.
-if marktrisiko == "Normale Märkte":
-    freiheitsgrade = 30
-elif marktrisiko == "Leicht erhöhte Extremereignisse":
-    freiheitsgrade = 10
-else:
-    freiheitsgrade = 5
+    # Normale Märkte: fast wie Normalverteilung.
+    # Leicht erhöhte Extremereignisse: realistischer Standardmodus.
+    # Starke Extremereignisse: mehr Crash- und Boomphasen.
+    if marktrisiko == "Normale Märkte":
+        freiheitsgrade = 30
+    elif marktrisiko == "Leicht erhöhte Extremereignisse":
+        freiheitsgrade = 10
+    else:
+        freiheitsgrade = 5
 
-# Kurze Erklärung für Nutzer.
-st.caption(
-    "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
-)
+    # Kurze Erklärung für Nutzer.
+    st.caption(
+        "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
+    )
 
-# Button zum Starten der Simulation.
-simulation_starten = st.button("Simulation starten", use_container_width=True)
+    # Button zum Starten der Simulation.
+    simulation_starten = st.button("Simulation starten", use_container_width=True)
 
 
 # ------------------------------------------------------------
@@ -495,7 +493,7 @@ if simulation_starten:
     st.info(
         "Hinweis: Dieses Basismodell ist bewusst vereinfacht. "
         "Es berücksichtigt bereits Extremereignisse über die t-Verteilung, "
-        "aber noch keine Entnahmen, Inflation, Gebühren, Korrelationen, "
+        "aber noch keine Entnahmen, Inflation, Gebühren, Korrelationen, " 
         "Volatility Clustering oder Marktphasen."
     )
 
