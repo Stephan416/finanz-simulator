@@ -271,7 +271,7 @@ else:
 # Kurze Erklärung für Nutzer.
 st.caption(
     "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
-    )
+)
 
     # Button zum Starten der Simulation.
     simulation_starten = st.button("Simulation starten", use_container_width=True)
