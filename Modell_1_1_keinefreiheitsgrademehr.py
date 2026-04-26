@@ -235,12 +235,11 @@ with eingabe_spalte:
     # Monatlich ist für langfristige Finanzplanung oft ausreichend.
     schritte_pro_jahr = st.selectbox(
         "Zeitschritte",
-        options=[12, 52, 252],
+        options=[12, 52],
         index=0,
         format_func=lambda x: {
             12: "monatlich",
-            52: "wöchentlich",
-            252: "börsentäglich"
+            52: "wöchentlich"
         }[x]
     )
 
