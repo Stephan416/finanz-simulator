@@ -285,7 +285,7 @@ with eingabe_spalte:
 
     # Freiheitsgrade der t-Verteilung.
     # Niedriger = mehr extreme Ausschläge.
-     marktrisiko = st.selectbox(
+    marktrisiko = st.selectbox(
         "Marktrisiko",
         options=[
             "Normale Märkte",
