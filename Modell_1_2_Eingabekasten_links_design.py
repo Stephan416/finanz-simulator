@@ -42,53 +42,48 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-
-/* Seiten-Hintergrund */
+/* App-Hintergrund */
 .stApp {
-    background-color: #f5f7fb;
+    background: #ffffff;
 }
 
-/* Linke Spalte (Eingaben) */
-section[data-testid="column"]:first-child {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+/* Linke Eingabe-Spalte als Karte */
+[data-testid="column"]:first-of-type {
+    background: #ffffff;
+    padding: 28px 28px 32px 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 }
 
-/* Überschrift */
-h3 {
+/* Eingaben Überschrift */
+[data-testid="column"]:first-of-type h3 {
     color: #4f46e5;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: 0.04em;
 }
 
-/* Inputs */
-.stNumberInput, .stSelectbox {
-    background: #f9fafb;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-/* Slider Farbe */
-.stSlider > div > div > div > div {
-    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+/* Eingabefelder */
+[data-testid="stNumberInput"] input,
+[data-testid="stSelectbox"] div {
+    border-radius: 12px !important;
 }
 
 /* Button */
 .stButton > button {
-    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+    background: linear-gradient(90deg, #7c3aed, #38bdf8);
     color: white;
     border: none;
-    border-radius: 12px;
-    height: 50px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 14px;
+    height: 54px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
 }
 
 .stButton > button:hover {
-    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(59, 130, 246, 0.32);
 }
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -301,7 +296,7 @@ with eingabe_spalte:
 
     # Freiheitsgrade der t-Verteilung.
     # Niedriger = mehr extreme Ausschläge.
-    marktrisiko = st.selectbox(
+     marktrisiko = st.selectbox(
         "Marktrisiko",
         options=[
             "Normale Märkte",
