@@ -170,7 +170,7 @@ st.write(
 # 5. EINGABEBEREICH
 # ------------------------------------------------------------
 
-eingabe_spalte, ergebnis_spalte = st.columns([0.7, 1.3], gap="large")
+eingabe_spalte, ergebnis_spalte = st.columns([1, 1])
 
 
 with eingabe_spalte:
@@ -192,7 +192,7 @@ with eingabe_spalte:
     )
 
     aktienrendite_prozent = st.number_input(
-        "Erwartete Aktienrendite (%)",
+        "Erwartete reale Aktienrendite (%)",
         min_value=-20.0,
         max_value=30.0,
         value=7.0,
@@ -200,7 +200,7 @@ with eingabe_spalte:
     )
 
     anleihenrendite_prozent = st.number_input(
-        "Erwartete Anleihenrendite (%)",
+        "Erwartete reale Anleihenrendite (%)",
         min_value=-20.0,
         max_value=30.0,
         value=3.0,
@@ -277,6 +277,10 @@ with eingabe_spalte:
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
 
+    st.caption(
+    "Alle Renditen sind real (nach Inflation). "
+    "Die Ergebnisse zeigen Kaufkraft in heutigen Euro."
+    )  
     simulation_starten = st.button("Simulation starten", use_container_width=True)
 
 
