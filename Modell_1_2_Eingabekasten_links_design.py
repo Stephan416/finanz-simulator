@@ -39,45 +39,58 @@ st.set_page_config(
     page_icon="📈",
     layout="wide"
 )
+
 st.markdown("""
 <style>
-/* Hintergrund */
-body {
-    background-color: #f7f9fc;
+
+/* Seiten-Hintergrund */
+.stApp {
+    background-color: #f5f7fb;
 }
 
-/* Eingabe-Karte */
-.card {
+/* Linke Spalte (Eingaben) */
+section[data-testid="column"]:first-child {
     background: white;
     padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 /* Überschrift */
-.card h3 {
-    color: #4f6ef7;
+h3 {
+    color: #4f46e5;
     font-weight: 700;
 }
 
-/* Buttons schöner */
-.stButton>button {
-    background: linear-gradient(90deg, #7b61ff, #4f8cff);
+/* Inputs */
+.stNumberInput, .stSelectbox {
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* Slider Farbe */
+.stSlider > div > div > div > div {
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+}
+
+/* Button */
+.stButton > button {
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
     color: white;
+    border: none;
     border-radius: 12px;
     height: 50px;
     font-size: 16px;
     font-weight: 600;
-    border: none;
 }
 
-/* Slider Farbe */
-.stSlider > div > div {
-    color: #4f6ef7;
+.stButton > button:hover {
+    opacity: 0.9;
 }
+
 </style>
 """, unsafe_allow_html=True)
-
 
 # ------------------------------------------------------------
 # 2. HILFSFUNKTION: T-VERTEILTE SIMULATION
@@ -218,11 +231,14 @@ st.write(
 
 # Wir teilen die Seite in zwei Spalten.
 # Links kommen die Eingaben, rechts später die wichtigsten Ergebnisse.
-eingabe_spalte, ergebnis_spalte = st.columns([1, 1])
+eingabe_spalte, ergebnis_spalte = st.columns([0.85, 1.15], gap="large")
 
 
 with eingabe_spalte:
-    st.markdown('<div class="card">', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown("### Eingaben")
+        # alle Inputs hier rein
+    
 
     # Überschrift für Eingaben.
     st.markdown("### Eingaben")
@@ -285,7 +301,7 @@ with eingabe_spalte:
 
     # Freiheitsgrade der t-Verteilung.
     # Niedriger = mehr extreme Ausschläge.
-    marktrisiko = st.selectbox(
+     marktrisiko = st.selectbox(
         "Marktrisiko",
         options=[
             "Normale Märkte",
@@ -313,7 +329,7 @@ with eingabe_spalte:
     # Button zum Starten der Simulation.
     simulation_starten = st.button("Simulation starten", use_container_width=True)
 
-    st.markdown('</div>', unsafe_allow_html=True)
+   
 
 
 # ------------------------------------------------------------
