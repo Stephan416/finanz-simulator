@@ -170,7 +170,7 @@ st.write(
 # 5. EINGABEBEREICH
 # ------------------------------------------------------------
 
-eingabe_spalte, ergebnis_spalte = st.columns([1, 1])
+eingabe_spalte, ergebnis_spalte = st.columns([0.7, 1.3], gap="large")
 
 
 with eingabe_spalte:
