@@ -35,33 +35,28 @@ div[data-testid="stSlider"],
 div[data-testid="stSelectbox"] {
     margin-bottom: 14px;
 }
-</style>
-""", unsafe_allow_html=True)
 
-st.markdown("""
-<style>
-
-/* Abstand zwischen Inputs */
-div[data-testid="stNumberInput"],
-div[data-testid="stSlider"],
-div[data-testid="stSelectbox"] {
-    margin-bottom: 14px;
+/* ✅ NUR Icons bekommen Hover */
+.icon-box {
+    font-size: 28px;
+    text-align: center;
 }
 
-/* Hover-Effekt für Icons */
-div[data-testid="stMarkdown"] div:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
+.icon-box:hover {
+    transform: scale(1.15);
+    transition: 0.2s ease;
 }
-
-</style>
-""", unsafe_allow_html=True)
 
 .icon-box:hover {
     transform: scale(1.15);
     transition: 0.2s ease;
     filter: drop-shadow(0px 4px 10px rgba(123, 97, 255, 0.4));
 }
+
+
+</style>
+""", unsafe_allow_html=True)
+
 
 # ------------------------------------------------------------
 # 2. HILFSFUNKTION: PORTFOLIO-SIMULATION MIT T-VERTEILUNG
