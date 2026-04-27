@@ -178,30 +178,19 @@ def interpretation_text(startwert, median, p5, p95):
 # 4. APP-ÜBERSCHRIFT
 # ------------------------------------------------------------
 
-st.markdown("""
+st.markdown(
+    """
 <div style="padding: 10px 0 25px 0;">
-
-    <div style="
-        font-size: 38px;
-        font-weight: 800;
-        background: linear-gradient(90deg, #7c3aed, #3b82f6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    ">
-        Finanz-Simulator
-    </div>
-
-    <div style="
-        font-size: 17px;
-        color: #6b7280;
-        margin-top: 6px;
-        max-width: 900px;
-    ">
-        Simuliere dein Vermögen mit Aktien, Anleihen und realistischen Marktschocks – verständlich, visuell und in heutiger Kaufkraft.
-    </div>
-
+<div style="font-size: 38px; font-weight: 800; background: linear-gradient(90deg, #7c3aed, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+Finanz-Simulator
 </div>
-""", unsafe_allow_html=True)
+<div style="font-size: 17px; color: #6b7280; margin-top: 6px; max-width: 900px;">
+Simuliere dein Vermögen mit Aktien, Anleihen und realistischen Marktschocks – verständlich, visuell und in heutiger Kaufkraft.
+</div>
+</div>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # ------------------------------------------------------------
