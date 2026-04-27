@@ -211,40 +211,56 @@ with eingabe_spalte:
         )
     )
 
-    aktienquote_prozent = st.slider(
-        "Aktienquote (%)",
-        min_value=0,
-        max_value=100,
-        value=60
+    aktienquote_prozent = icon_input(
+        "📊",
+        "#7c3aed",
+        lambda: st.slider(
+            "Aktienquote (%)",
+            min_value=0,
+            max_value=100,
+            value=60
+        )
     )
 
-    aktienrendite_prozent = st.number_input(
-        "Erwartete reale Aktienrendite (%)",
-        min_value=-20.0,
-        max_value=30.0,
-        value=7.0,
-        step=0.5
+    aktienrendite_prozent = icon_input(
+        "📈",
+        "#22c55e",
+        lambda: st.number_input(
+            "Erwartete reale Aktienrendite (%)",
+            min_value=-20.0,
+            max_value=30.0,
+            value=7.0,
+            step=0.5
+        )
     )
 
-    anleihenrendite_prozent = st.number_input(
-        "Erwartete reale Anleihenrendite (%)",
-        min_value=-20.0,
-        max_value=30.0,
-        value=3.0,
-        step=0.5
+
+    anleihenrendite_prozent = icon_input(
+        "🛡️",
+        "#10b981",
+        lambda: st.number_input(
+            "Erwartete reale Anleihenrendite (%)",
+            min_value=-20.0,
+            max_value=30.0,
+            value=3.0,
+            step=0.5
+        )
     )
 
    
 
- 
 
     
 
-    jahre = st.slider(
-        "Zeitraum in Jahren",
-        min_value=1,
-        max_value=60,
-        value=30
+    jahre = icon_input(
+        "📅",
+        "#ef4444",
+        lambda: st.slider(
+            "Zeitraum in Jahren",
+            min_value=1,
+            max_value=60,
+            value=30
+        )
     )
 
     
@@ -272,12 +288,16 @@ with eingabe_spalte:
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
 
-    simulationen = st.slider(
-        "Anzahl Simulationen",
-        min_value=100,
-        max_value=20000,
-        value=2000,
-        step=100
+    simulationen = icon_input(
+        "👥",
+        "#f59e0b",
+        lambda: st.slider(
+            "Anzahl Simulationen",
+            min_value=100,
+            max_value=20000,
+            value=2000,
+            step=100
+        )
     )
 
     st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
