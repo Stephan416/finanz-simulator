@@ -178,6 +178,10 @@ def interpretation_text(startwert, median, p5, p95):
 # 4. APP-ÜBERSCHRIFT
 # ------------------------------------------------------------
 
+<div style="font-size: 36px; font-weight: 700;">
+    ⚡ Finanz-Simulator
+</div>
+
 st.markdown(
 """
 <div style="padding: 10px 0 25px 0;">
