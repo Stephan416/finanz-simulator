@@ -178,14 +178,30 @@ def interpretation_text(startwert, median, p5, p95):
 # 4. APP-ÜBERSCHRIFT
 # ------------------------------------------------------------
 
-st.title("Finanz-Simulator")
-st.subheader("Basismodell: Portfolio-Simulation mit Aktien, Anleihen und t-verteilten Marktschocks")
+st.markdown("""
+<div style="padding: 10px 0 25px 0;">
 
-st.write(
-    "Dieses Modell simuliert viele mögliche Zukunftsverläufe deines Vermögens. "
-    "Das Portfolio besteht aus Aktien und Anleihen. Rendite und Risiko ergeben sich aus "
-    "den eingegebenen Annahmen zu Rendite, Volatilität, Gewichtung und Korrelation."
-)
+    <div style="
+        font-size: 38px;
+        font-weight: 800;
+        background: linear-gradient(90deg, #7c3aed, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    ">
+        Finanz-Simulator
+    </div>
+
+    <div style="
+        font-size: 17px;
+        color: #6b7280;
+        margin-top: 6px;
+        max-width: 900px;
+    ">
+        Simuliere dein Vermögen mit Aktien, Anleihen und realistischen Marktschocks – verständlich, visuell und in heutiger Kaufkraft.
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
 
 # ------------------------------------------------------------
