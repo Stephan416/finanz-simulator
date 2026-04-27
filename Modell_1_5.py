@@ -179,19 +179,34 @@ def interpretation_text(startwert, median, p5, p95):
 # ------------------------------------------------------------
 
 st.markdown(
-    """
+"""
 <div style="padding: 10px 0 25px 0;">
-<div style="font-size: 38px; font-weight: 800; background: linear-gradient(90deg, #7c3aed, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+
+<div style="
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+">
 Finanz-Simulator
 </div>
-<div style="font-size: 17px; color: #6b7280; margin-top: 6px; max-width: 900px;">
+
+<div style="
+    font-size: 17px;
+    color: #6b7280;
+    margin-top: 6px;
+    max-width: 900px;
+">
 Simuliere dein Vermögen mit Aktien, Anleihen und realistischen Marktschocks – verständlich, visuell und in heutiger Kaufkraft.
 </div>
-</div>
-    """,
-    unsafe_allow_html=True
-)
 
+</div>
+""",
+unsafe_allow_html=True
+)
 
 # ------------------------------------------------------------
 # 5. EINGABEBEREICH
