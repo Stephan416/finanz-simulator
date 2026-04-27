@@ -364,7 +364,7 @@ with eingabe_spalte:
     "Das Portfolio besteht aus Aktien und Anleihen. "
     "Eine Aktienquote von 60% impliziert einen Anleihenanteil von 40%."
     )  
-    simulation_starten = st.button("Simulation starten", use_container_width=True)
+    simulation_starten = st.button("🚀 Simulation starten", use_container_width=True)
 
 
 # ------------------------------------------------------------
