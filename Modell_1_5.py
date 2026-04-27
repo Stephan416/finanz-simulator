@@ -182,9 +182,7 @@ def interpretation_text(startwert, median, p5, p95):
 
 st.markdown(
 """
-<div style="font-size: 36px; font-weight: 700;">
-    ⚡ Finanz-Simulator
-</div>
+
 <div style="padding: 10px 0 25px 0;">
 
 <div style="
@@ -196,7 +194,7 @@ st.markdown(
     color: transparent;
     -webkit-text-fill-color: transparent;
 ">
-Finanz-Simulator
+⚡Finanz-Simulator
 </div>
 
 <div style="
