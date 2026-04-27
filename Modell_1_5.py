@@ -38,19 +38,12 @@ div[data-testid="stSelectbox"] {
 
 /* ✅ NUR Icons bekommen Hover */
 .icon-box {
-    font-size: 28px;
-    text-align: center;
-}
-
-.icon-box:hover {
-    transform: scale(1.15);
     transition: 0.2s ease;
 }
 
 .icon-box:hover {
     transform: scale(1.15);
-    transition: 0.2s ease;
-    filter: drop-shadow(0px 4px 10px rgba(123, 97, 255, 0.4));
+    filter: drop-shadow(0px 4px 10px rgba(123, 97, 255, 0.35));
 }
 
 
@@ -210,7 +203,7 @@ with eingabe_spalte:
         with icon_col:
             st.markdown(
                 f"""
-                <div style="
+                <div class="icon-box" style="
                     width:42px;
                     height:42px;
                     border-radius:12px;
