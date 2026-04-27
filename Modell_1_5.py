@@ -28,6 +28,34 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+div[data-testid="stNumberInput"],
+div[data-testid="stSlider"],
+div[data-testid="stSelectbox"] {
+    margin-bottom: 14px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
+/* Abstand zwischen Inputs */
+div[data-testid="stNumberInput"],
+div[data-testid="stSlider"],
+div[data-testid="stSelectbox"] {
+    margin-bottom: 14px;
+}
+
+/* Hover-Effekt für Icons */
+div[data-testid="stMarkdown"] div:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 # ------------------------------------------------------------
 # 2. HILFSFUNKTION: PORTFOLIO-SIMULATION MIT T-VERTEILUNG
