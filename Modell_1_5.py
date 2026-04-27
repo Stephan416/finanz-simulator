@@ -57,6 +57,12 @@ div[data-testid="stMarkdown"] div:hover {
 </style>
 """, unsafe_allow_html=True)
 
+.icon-box:hover {
+    transform: scale(1.15);
+    transition: 0.2s ease;
+    filter: drop-shadow(0px 4px 10px rgba(123, 97, 255, 0.4));
+}
+
 # ------------------------------------------------------------
 # 2. HILFSFUNKTION: PORTFOLIO-SIMULATION MIT T-VERTEILUNG
 # ------------------------------------------------------------
@@ -318,7 +324,7 @@ with eingabe_spalte:
 
     simulationen = icon_input(
         "👥",
-        "#f59e0b",
+        "#ef4444",
         lambda: st.slider(
             "Anzahl Simulationen",
             min_value=100,
