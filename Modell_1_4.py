@@ -220,13 +220,7 @@ with eingabe_spalte:
         value=30
     )
 
-    simulationen = st.slider(
-        "Anzahl Simulationen",
-        min_value=100,
-        max_value=20000,
-        value=2000,
-        step=100
-    )
+    
 
    
 
@@ -251,7 +245,15 @@ with eingabe_spalte:
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
 
-    st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation.")
+    simulationen = st.slider(
+        "Anzahl Simulationen",
+        min_value=100,
+        max_value=20000,
+        value=2000,
+        step=100
+    )
+
+    st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
     with st.expander("⚙️ Erweiterte Einstellungen (optional)"):
         aktienvolatilitaet_prozent = st.number_input(
             "Aktienvolatilität (%)",
