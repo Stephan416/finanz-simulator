@@ -251,7 +251,8 @@ with eingabe_spalte:
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
 
-    with st.expander("Premium-Einstellungen"):
+    st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation.")
+    with st.expander("⚙️ Erweiterte Einstellungen (optional)"):
         aktienvolatilitaet_prozent = st.number_input(
             "Aktienvolatilität (%)",
             min_value=0.0,
@@ -288,8 +289,8 @@ with eingabe_spalte:
 
     st.caption(
     "Alle Renditen sind real (nach Inflation). "
-    "Die Ergebnisse zeigen Kaufkraft in heutigen Euro."
-    "Das Portfolio besteht aus Aktien und Anleihen."
+    "Die Ergebnisse zeigen Kaufkraft in heutigen Euro. "
+    "Das Portfolio besteht aus Aktien und Anleihen. "
     "Eine Aktienquote von 60% impliziert einen Anleihenanteil von 40%."
     )  
     simulation_starten = st.button("Simulation starten", use_container_width=True)
