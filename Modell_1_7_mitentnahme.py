@@ -275,16 +275,16 @@ with eingabe_spalte:
         entnahmequote_pro_jahr = monatliche_entnahme * 12 / startwert * 100
 
     if entnahmequote_pro_jahr <= 3.5:
-        st.success(
+        st.caption(
             f"✅ Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – eher konservativ"
         )
     elif entnahmequote_pro_jahr <= 5.0:
-        st.warning(
+        st.caption(
             f"⚠️ Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – ambitioniert"
         )
     else:
-        st.error(
-            f"🚨 Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – sehr hoch"
+        st.caption(
+        f"🚨 Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – sehr hoch"
         )
 
     
