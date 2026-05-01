@@ -301,7 +301,7 @@ with input_col:
 
     
 
-    jahre = icon_input(
+jahre = icon_input(
         "📅",
         "#ef4444",
         lambda: st.slider(
@@ -315,8 +315,7 @@ with input_col:
     
 
    
-
-    marktrisiko = st.selectbox(
+marktrisiko = st.selectbox(
         "Marktrisiko",
         options=[
             "Normale Märkte",
@@ -337,7 +336,7 @@ with input_col:
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
 
-    simulationen = icon_input(
+simulationen = icon_input(
         "👥",
         "#f59e0b",
         lambda: st.slider(
@@ -349,7 +348,7 @@ with input_col:
         )
     )
 
-    st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
+st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
     with st.expander("👑 Erweiterte Einstellungen (optional)"):
         aktienvolatilitaet_prozent = st.number_input(
             "Aktienvolatilität (%)",
@@ -385,7 +384,7 @@ with input_col:
             }[x]
         )
 
-    st.caption(
+st.caption(
     "Alle Renditen sind real (nach Inflation). "
     "Die Ergebnisse zeigen Kaufkraft in heutigen Euro. "
     "Das Portfolio besteht aus Aktien und Anleihen. "
