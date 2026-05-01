@@ -394,7 +394,7 @@ if simulation_starten:
             jahre=jahre,
             schritte_pro_jahr=schritte_pro_jahr,
             simulationen=simulationen,
-            freiheitsgrade=Freiheitsgrade,
+            freiheitsgrade=freiheitsgrade,
             monatliche_entnahme=monatliche_entnahme
         )
 
