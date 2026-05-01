@@ -187,6 +187,7 @@ with eingabe_spalte:
 
     st.markdown("### Eingaben")
     def icon_input(icon, color, widget_func):
+
     icon_col, input_col = st.columns([0.12, 0.88])
 
     with icon_col:
@@ -316,7 +317,7 @@ with eingabe_spalte:
         "Eine Aktienquote von 60% impliziert einen Anleihenanteil von 40%."
     )
 
-    simulation_starten = st.button("Simulation starten", use_container_width=True)        
+    simulation_starten = st.button("Simulation starten", use_container_width=True)    
 
 
 # ------------------------------------------------------------
