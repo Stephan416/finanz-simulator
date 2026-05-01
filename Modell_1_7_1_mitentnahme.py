@@ -261,34 +261,34 @@ with eingabe_spalte:
     icon_col, input_col = st.columns([0.12, 0.88])
 
     with icon_col:
-    st.markdown(
-        """
-        <div style="
-            width:42px;
-            height:42px;
-            border-radius:12px;
-            background:#ef444418;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:22px;
-            margin-top:22px;
-        ">
-            💸
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+        st.markdown(
+            """
+            <div style="
+                width:42px;
+                height:42px;
+                border-radius:12px;
+                background:#ef444418;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:22px;
+                margin-top:22px;
+            ">
+               💸
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     with input_col:
-    monatliche_entnahme = st.number_input(
-        "Monatliche Entnahme (€)",
-        min_value=0,
-        value=1_000,
-        step=100
-    )
+        monatliche_entnahme = st.number_input(
+            "Monatliche Entnahme (€)",
+            min_value=0,
+            value=1_000,
+            step=100
+        )
 
-    if startwert > 0:
+        if startwert > 0:
         entnahmequote_pro_jahr = monatliche_entnahme * 12 / startwert * 100
 
         st.caption(
