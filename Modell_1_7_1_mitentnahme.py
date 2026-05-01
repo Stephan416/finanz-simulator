@@ -167,7 +167,7 @@ def interpretation_text(startwert, median, p5, p95):
 # ------------------------------------------------------------
 
 st.title("Finanz-Simulator")
-st.subheader("Basismodell: Portfolio-Simulation mit Aktien, Anleihen und t-verteilten Marktschocks")
+st.subheader("Modell: Portfolio-Simulation mit Aktien, Anleihen und t-verteilten Marktschocks")
 
 st.write(
     "Dieses Modell simuliert viele mögliche Zukunftsverläufe deines Vermögens. "
@@ -187,121 +187,48 @@ with eingabe_spalte:
 
     st.markdown("### Eingaben")
     def icon_input(icon, color, widget_func):
-        icon_col, input_col = st.columns([0.12, 0.88])
-        with icon_col:
-            st.markdown(
-                f"""
-                <div style="
-                    width:42px;
-                    height:42px;
-                    border-radius:12px;
-                    background:{color}18;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    font-size:22px;
-                    margin-top:22px;
-                ">
-                    {icon}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-        with input_col:
-            return widget_func()
+    icon_col, input_col = st.columns([0.12, 0.88])
 
-    startwert = icon_input(
-        "💼",
-        "#7c3aed",
-        lambda: st.number_input(
-            "Startvermögen (€)",
+    with icon_col:
+        st.markdown(
+            """
+            <div style="
+                width:42px;
+                height:42px;
+                border-radius:12px;
+                background:#ef444418;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:22px;
+                margin-top:22px;
+            ">
+                💸
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with input_col:
+        monatliche_entnahme = st.number_input(
+            "Monatliche Entnahme (€)",
             min_value=0,
-            value=100_000,
-            step=10_000
+            value=1_000,
+            step=100
         )
-    )
 
-    aktienquote_prozent = icon_input(
-        "📊",
-        "#7c3aed",
-        lambda: st.slider(
-            "Aktienquote (%)",
-            min_value=0,
-            max_value=100,
-            value=60
-        )
-    )
+        entnahmequote_pro_jahr = 0
+        if startwert > 0:
+            entnahmequote_pro_jahr = monatliche_entnahme * 12 / startwert * 100
 
-    aktienrendite_prozent = icon_input(
-        "📈",
-        "#22c55e",
-        lambda: st.number_input(
-            "Erwartete reale Aktienrendite (%)",
-            min_value=-20.0,
-            max_value=30.0,
-            value=7.0,
-            step=0.5
-        )
-    )
+        if entnahmequote_pro_jahr <= 3.5:
+            st.caption(f"✅ Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – konservativ")
+        elif entnahmequote_pro_jahr <= 5.0:
+            st.caption(f"⚠️ Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – ambitioniert")
+        else:
+            st.caption(f"🚨 Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – sehr hoch")
 
-
-    anleihenrendite_prozent = icon_input(
-        "🛡️",
-        "#10b981",
-        lambda: st.number_input(
-            "Erwartete reale Anleihenrendite (%)",
-            min_value=-20.0,
-            max_value=30.0,
-            value=3.0,
-            step=0.5
-        )
-    )
-
-   
-icon_col, input_col = st.columns([0.12, 0.88])
-
-with icon_col:
-    st.markdown(
-        """
-        <div style="
-            width:42px;
-            height:42px;
-            border-radius:12px;
-            background:#ef444418;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:22px;
-            margin-top:22px;
-        ">
-            💸
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-with input_col:
-    monatliche_entnahme = st.number_input(
-        "Monatliche Entnahme (€)",
-        min_value=0,
-        value=1_000,
-        step=100
-    )
-
-    entnahmequote_pro_jahr = 0
-    if startwert > 0:
-        entnahmequote_pro_jahr = monatliche_entnahme * 12 / startwert * 100
-
-    if entnahmequote_pro_jahr <= 3.5:
-        st.caption(f"✅ Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – konservativ")
-    elif entnahmequote_pro_jahr <= 5.0:
-        st.caption(f"⚠️ Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – ambitioniert")
-    else:
-        st.caption(f"🚨 Entnahmequote: {entnahmequote_pro_jahr:.1f} % p.a. – sehr hoch")
-
-    
-
-jahre = icon_input(
+    jahre = icon_input(
         "📅",
         "#ef4444",
         lambda: st.slider(
@@ -312,10 +239,7 @@ jahre = icon_input(
         )
     )
 
-    
-
-   
-marktrisiko = st.selectbox(
+    marktrisiko = st.selectbox(
         "Marktrisiko",
         options=[
             "Normale Märkte",
@@ -336,7 +260,7 @@ marktrisiko = st.selectbox(
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
 
-simulationen = icon_input(
+    simulationen = icon_input(
         "👥",
         "#f59e0b",
         lambda: st.slider(
@@ -348,7 +272,8 @@ simulationen = icon_input(
         )
     )
 
-st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
+    st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
+
     with st.expander("👑 Erweiterte Einstellungen (optional)"):
         aktienvolatilitaet_prozent = st.number_input(
             "Aktienvolatilität (%)",
@@ -384,13 +309,14 @@ st.caption("Für fortgeschrittene Annahmen wie Volatilität und Korrelation:")
             }[x]
         )
 
-st.caption(
-    "Alle Renditen sind real (nach Inflation). "
-    "Die Ergebnisse zeigen Kaufkraft in heutigen Euro. "
-    "Das Portfolio besteht aus Aktien und Anleihen. "
-    "Eine Aktienquote von 60% impliziert einen Anleihenanteil von 40%."
-    )  
-    simulation_starten = st.button("Simulation starten", use_container_width=True)
+    st.caption(
+        "Alle Renditen sind real (nach Inflation). "
+        "Die Ergebnisse zeigen Kaufkraft in heutigen Euro. "
+        "Das Portfolio besteht aus Aktien und Anleihen. "
+        "Eine Aktienquote von 60% impliziert einen Anleihenanteil von 40%."
+    )
+
+    simulation_starten = st.button("Simulation starten", use_container_width=True)        
 
 
 # ------------------------------------------------------------
@@ -582,7 +508,7 @@ if simulation_starten:
     # ------------------------------------------------------------
 
     st.info(
-        "Hinweis: Dieses Basismodell ist bewusst vereinfacht. "
+        "Hinweis: Dieses Modell ist bewusst vereinfacht. "
         "Es berücksichtigt Aktien, Anleihen, deren Gewichtung, Volatilität und Korrelation. "
         "Noch nicht enthalten sind Entnahmen, Inflation, Gebühren, Rebalancing, "
         "Volatility Clustering oder wechselnde Marktphasen."
