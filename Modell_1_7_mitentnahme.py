@@ -44,7 +44,7 @@ def simulate_t_gbm_portfolio(
     jahre,
     schritte_pro_jahr,
     simulationen,
-    Freiheitsgrade,
+    freiheitsgrade,
     monatliche_entnahme
 ):
     """
@@ -113,7 +113,7 @@ def simulate_t_gbm_portfolio(
 
     # Entnahme pro Simualtionsschritt berechnen.
     # Bei monatlicher Simulation entspricht ein Schritt einem Monat.
-    entnahme_pro_Schritt = monatliche_entnahme*12 / schritte_pro_jahr
+    entnahme_pro_schritt = monatliche_entnahme*12 / schritte_pro_jahr
     
 
     # Matrix für alle simulierten Vermögenswerte.
@@ -144,7 +144,7 @@ def simulate_t_gbm_portfolio(
 
         # Vermögen darf nicht negativ werden.
         # Wenn ein Pfad auf 0 fällt, bleibt er bei 0.
-        werte [Zeitpunkt, :] = np.maximum(werte[Zeitpunkt, :], 0)
+        werte [zeitpunkt, :] = np.maximum(werte[zeitpunkt, :], 0)
 
     return werte, portfolio_rendite, portfolio_volatilitaet
 
@@ -400,7 +400,7 @@ if simulation_starten:
 
     endwerte = werte[-1, :]
 
-    wahrscheinlichkeit_geld_reicht = np.mean(Endwerte > 0)*100
+    wahrscheinlichkeit_geld_reicht = np.mean(endwerte > 0)*100
 
     median = np.median(endwerte)
     p5 = np.percentile(endwerte, 5)
@@ -435,7 +435,7 @@ if simulation_starten:
 
         st.metric(
             label="Wahrscheinlichkeit: Geld reicht",
-            value=f"{wahrscheinlichkeit_geld_reicht:.lf} %"
+            value=f"{wahrscheinlichkeit_geld_reicht:.1f} %"
         )
 
         with st.expander("Weitere Kennzahlen anzeigen"):
