@@ -289,7 +289,7 @@ with eingabe_spalte:
         )
 
         if startwert > 0:
-        entnahmequote_pro_jahr = monatliche_entnahme * 12 / startwert * 100
+            entnahmequote_pro_jahr = monatliche_entnahme * 12 / startwert * 100
 
         st.caption(
             f"💡 Entspricht {entnahmequote_pro_jahr:.1f} % pro Jahr"
