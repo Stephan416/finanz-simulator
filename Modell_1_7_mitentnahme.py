@@ -258,8 +258,8 @@ with eingabe_spalte:
     )
 
    
-    monatliche Entnahme = icon_input(
-        "📅",
+    monatliche_entnahme = icon_input(
+        "💸",
         "#ef4444",
         lambda: st.number_input(
             "Monatliche Entnahme (€)",
