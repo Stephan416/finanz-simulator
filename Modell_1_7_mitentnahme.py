@@ -44,7 +44,7 @@ def simulate_t_gbm_portfolio(
     jahre,
     schritte_pro_jahr,
     simulationen,
-    Freiheitsgrade
+    Freiheitsgrade,
     monatliche_entnahme
 ):
     """
