@@ -473,7 +473,14 @@ if simulation_starten:
         st.success(text)
 
         st.markdown("### Einschätzung")
-        st.write(interpretation_pleite)
+        if "typed_text" not in st.session_state:
+            st.session_state.typed_text = False
+
+        if not st.session_state.typed_text:
+            typewriter(interpretation_pleite)
+            st.session_state.typed_text = True
+        else:
+            st.write(interpretation_pleite)
 
      
 
