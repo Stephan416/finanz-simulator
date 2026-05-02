@@ -181,7 +181,7 @@ st.write(
 # ------------------------------------------------------------
 
 eingabe_spalte, ergebnis_spalte, info_spalte = st.columns(
-    [0.7, 1.0, 0.35],
+    [0.55, 1.15, 0.6],
     gap="large"
 )
 
