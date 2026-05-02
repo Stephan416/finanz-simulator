@@ -481,12 +481,12 @@ if simulation_starten:
             st.write(f"Anleihenquote: {100 - aktienquote_prozent:.0f} %")
 
     with info_spalte:
-          
+
         st.markdown("### Überblick")
 
-    	st.markdown("#### 💸 Entnahme")
-    	st.metric(
-       	    label="Entnahmequote",
+        st.markdown("#### 💸 Entnahme")
+        st.metric(
+            label="Entnahmequote",
             value=f"{entnahmequote_pro_jahr:.1f} % p.a."
         )
 
