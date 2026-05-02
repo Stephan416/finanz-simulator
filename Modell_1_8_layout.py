@@ -480,6 +480,13 @@ if simulation_starten:
             st.write(f"Aktienquote: {aktienquote_prozent:.0f} %")
             st.write(f"Anleihenquote: {100 - aktienquote_prozent:.0f} %")
 
+    with info_spalte:
+        st.markdown("### Überblick")
+        st.metric("Entnahmequote", f"{entnahmequote_pro_jahr:.1f} % p.a.")
+        st.metric("Aktienquote", f"{aktienquote_prozent:.0f} %")
+        st.metric("Anleihenquote", f"{100 - aktienquote_prozent:.0f} %")
+        st.metric("Portfolio-Vola", f"{portfolio_volatilitaet * 100:.1f} %")  
+
 
     # ------------------------------------------------------------
     # 8. ZEITACHSE
