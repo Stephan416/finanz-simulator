@@ -433,6 +433,7 @@ if simulation_starten:
 
     endwerte = werte[-1, :]
 
+    wahrscheinlichkeit_geld_reicht = np.mean(endwerte > 0)*100
     ruin_paths = np.any(werte <= 0, axis=0)
     ruin_wahrscheinlichkeit = np.mean(ruin_paths) * 100
 
