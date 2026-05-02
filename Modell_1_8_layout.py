@@ -455,6 +455,12 @@ if simulation_starten:
         text = interpretation_text(startwert, median, p5, p95)
         st.success(text)
 
+        interpretation_pleite = (
+            f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
+            f"geht dein Portfolio bei einer monatlichen Entnahme von "
+            f"{monatliche_entnahme:,.0f} € nicht pleite."
+        ).replace(",", ".")
+
         k1, k2, k3 = st.columns(3)
 
         k1.metric(
@@ -486,11 +492,7 @@ if simulation_starten:
             st.write(f"Aktienquote: {aktienquote_prozent:.0f} %")
             st.write(f"Anleihenquote: {100 - aktienquote_prozent:.0f} %")
 
-        interpretation_pleite = (
-               f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
-               f"geht dein Portfolio bei einer monatlichen Entnahme von "
-               f"{monatliche_entnahme:,.0f} € nicht pleite."
-           ).replace(",", ".")
+      
 
     with info_spalte:
 
