@@ -439,11 +439,7 @@ if simulation_starten:
 
     survival_wahrscheinlichkeit = 100 - ruin_wahrscheinlichkeit
 
-    interpretation_pleite = (
-        f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
-        f"geht dein Portfolio bei einer monatlichen Entnahme von "
-        f"{monatliche_entnahme:,.0f} € nicht pleite."
-    ).replace(",", ".")
+  
 
     median = np.median(endwerte)
     p5 = np.percentile(endwerte, 5)
@@ -489,6 +485,12 @@ if simulation_starten:
             st.write(f"Portfolio-Volatilität: {portfolio_volatilitaet * 100:.2f} % p.a.")
             st.write(f"Aktienquote: {aktienquote_prozent:.0f} %")
             st.write(f"Anleihenquote: {100 - aktienquote_prozent:.0f} %")
+
+        interpretation_pleite = (
+               f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
+               f"geht dein Portfolio bei einer monatlichen Entnahme von "
+               f"{monatliche_entnahme:,.0f} € nicht pleite."
+           ).replace(",", ".")
 
     with info_spalte:
 
