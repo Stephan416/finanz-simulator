@@ -433,7 +433,16 @@ if simulation_starten:
 
     endwerte = werte[-1, :]
 
-    wahrscheinlichkeit_geld_reicht = np.mean(endwerte > 0)*100
+    ruin_paths = np.any(werte <= 0, axis=0)
+    ruin_wahrscheinlichkeit = np.mean(ruin_paths) * 100
+
+    survival_wahrscheinlichkeit = 100 - ruin_wahrscheinlichkeit
+
+    interpretation_pleite = (
+        f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
+        f"geht dein Portfolio bei einer monatlichen Entnahme von "
+        f"{monatliche_entnahme:,.0f} € nicht pleite."
+    ).replace(",", ".")
 
     median = np.median(endwerte)
     p5 = np.percentile(endwerte, 5)
