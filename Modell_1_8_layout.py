@@ -438,6 +438,11 @@ if simulation_starten:
     ruin_wahrscheinlichkeit = np.mean(ruin_paths) * 100
 
     survival_wahrscheinlichkeit = 100 - ruin_wahrscheinlichkeit
+    interpretation_pleite = (
+        f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
+        f"geht dein Portfolio bei einer monatlichen Entnahme von "
+        f"{monatliche_entnahme:,.0f} € nicht pleite."
+    ).replace(",", ".")
 
   
 
@@ -455,11 +460,10 @@ if simulation_starten:
         text = interpretation_text(startwert, median, p5, p95)
         st.success(text)
 
-        interpretation_pleite = (
-            f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
-            f"geht dein Portfolio bei einer monatlichen Entnahme von "
-            f"{monatliche_entnahme:,.0f} € nicht pleite."
-        ).replace(",", ".")
+        st.markdown("### Einschätzung")
+        st.write(interpretation_pleite)
+
+     
 
         k1, k2, k3 = st.columns(3)
 
