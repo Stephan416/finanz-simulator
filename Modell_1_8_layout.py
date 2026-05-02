@@ -481,12 +481,33 @@ if simulation_starten:
             st.write(f"Anleihenquote: {100 - aktienquote_prozent:.0f} %")
 
     with info_spalte:
+          
         st.markdown("### Überblick")
-        st.metric("Entnahmequote", f"{entnahmequote_pro_jahr:.1f} % p.a.")
-        st.metric("Aktienquote", f"{aktienquote_prozent:.0f} %")
-        st.metric("Anleihenquote", f"{100 - aktienquote_prozent:.0f} %")
-        st.metric("Portfolio-Vola", f"{portfolio_volatilitaet * 100:.1f} %")  
 
+    	st.markdown("#### 💸 Entnahme")
+    	st.metric(
+       	    label="Entnahmequote",
+            value=f"{entnahmequote_pro_jahr:.1f} % p.a."
+        )
+
+        if entnahmequote_pro_jahr <= 3.5:
+            st.caption("✅ eher konservativ")
+        elif entnahmequote_pro_jahr <= 5.0:
+            st.caption("⚠️ ambitioniert")
+        else:
+            st.caption("🚨 sehr hoch")
+
+        st.divider()
+
+        st.markdown("#### 📊 Portfolio")
+        st.metric("Aktien", f"{aktienquote_prozent:.0f} %")
+        st.metric("Anleihen", f"{100 - aktienquote_prozent:.0f} %")
+
+        st.divider()
+
+        st.markdown("#### 🌊 Risiko")
+        st.metric("Portfolio-Vola", f"{portfolio_volatilitaet * 100:.1f} %")
+        st.caption(f"Marktrisiko: {marktrisiko}")
 
     # ------------------------------------------------------------
     # 8. ZEITACHSE
