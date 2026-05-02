@@ -160,6 +160,16 @@ def interpretation_text(startwert, median, p5, p95):
         return "Dein Vermögen wächst im mittleren Szenario, kann in schwachen Marktphasen aber deutlich zurückfallen."
     else:
         return "Dein Vermögen steht unter Druck. Die gewählten Annahmen wirken eher riskant."
+import time
+
+def typewriter(text, speed=0.02):
+    placeholder = st.empty()
+    output = ""
+
+    for char in text:
+        output += char
+        placeholder.markdown(f"<div style='font-size:18px'>{output}</div>", unsafe_allow_html=True)
+        time.sleep(speed)
 
 
 # ------------------------------------------------------------
