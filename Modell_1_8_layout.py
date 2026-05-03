@@ -310,7 +310,7 @@ with eingabe_spalte:
             f"💡 Entspricht {entnahmequote_pro_jahr:.1f} % pro Jahr"
         )
 
-    entnahmequote_pro_jahr = 0
+    
 
 
 
@@ -550,6 +550,8 @@ if simulation_starten:
     with info_spalte:
 
         st.markdown("### Überblick")
+
+        st.write(f"Freiheitsgrade: {freiheitsgrade}")
 
         st.markdown("#### 💸 Entnahme")
         st.metric(
