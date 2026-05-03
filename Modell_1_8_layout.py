@@ -445,6 +445,27 @@ if simulation_starten:
 
     endwerte = werte[-1, :]
 
+    # Zeitpunkt der ersten Pleite je Simulation bestimmen
+    pleite_matrix = werte <= 0
+
+    # Index des ersten Auftretens von 0
+    first_zero_index = np.argmax(pleite_matrix, axis=0)
+
+    # Simulationen ohne Pleite herausfiltern
+    ruin_paths = np.any(pleite_matrix, axis=0)
+
+    # Nur Pfade betrachten, die wirklich pleite gehen
+    pleite_zeitpunkte = first_zero_index[ruin_paths]
+
+    # In Jahre umrechnen
+    pleite_zeitpunkte_jahre = pleite_zeitpunkte / schritte_pro_jahr
+
+    # Median berechnen (nur wenn es überhaupt Pleiten gibt)
+    if len(pleite_zeitpunkte_jahre) > 0:
+        median_pleitezeit = np.median(pleite_zeitpunkte_jahre)
+    else:
+        median_pleitezeit = None
+
     wahrscheinlichkeit_geld_reicht = np.mean(endwerte > 0)*100
     ruin_paths = np.any(werte <= 0, axis=0)
     ruin_wahrscheinlichkeit = np.mean(ruin_paths) * 100
@@ -455,6 +476,13 @@ if simulation_starten:
         f"geht dein Portfolio bei einer monatlichen Entnahme von "
         f"{monatliche_entnahme:,.0f} € nicht pleite."
     ).replace(",", ".")
+    if median_pleitezeit is not None:
+        pleite_text = (
+            f"Wenn das Vermögen nicht reicht, tritt die vollständige Entnahme "
+            f"im Median nach {median_pleitezeit:.1f} Jahren ein."
+        )
+    else:
+        pleite_text = "In keiner Simulation tritt eine vollständige Entnahme auf."
 
   
 
@@ -476,11 +504,13 @@ if simulation_starten:
         if "typed_text" not in st.session_state:
             st.session_state.typed_text = False
 
+        full_text = interpretation_pleite + "\n\n" + pleite_text
+
         if not st.session_state.typed_text:
-            typewriter(interpretation_pleite)
+            typewriter(full_text)
             st.session_state.typed_text = True
         else:
-            st.write(interpretation_pleite)
+            st.write(full_text)
 
      
 
