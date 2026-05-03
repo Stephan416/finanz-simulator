@@ -473,13 +473,13 @@ if simulation_starten:
     survival_wahrscheinlichkeit = 100 - ruin_wahrscheinlichkeit
     interpretation_pleite = (
         f"Mit einer Wahrscheinlichkeit von {survival_wahrscheinlichkeit:.1f} % "
-        f"geht dein Portfolio bei einer monatlichen Entnahme von "
-        f"{monatliche_entnahme:,.0f} € nicht pleite."
+        f"reicht dein Vermögen bei einer monatlichen Entnahme von "
+        f"{monatliche_entnahme:,.0f} € bis zum Ende."
     ).replace(",", ".")
     if median_pleitezeit is not None:
         pleite_text = (
-            f"Wenn das Vermögen nicht reicht, tritt die vollständige Entnahme "
-            f"im Median nach {median_pleitezeit:.1f} Jahren ein."
+            f"Wenn das Vermögen nicht reicht, bist du "
+            f"im Median nach {median_pleitezeit:.1f} Jahren pleite."
         )
     else:
         pleite_text = "In keiner Simulation tritt eine vollständige Entnahme auf."
