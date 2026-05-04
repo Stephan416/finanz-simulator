@@ -342,11 +342,11 @@ with eingabe_spalte:
     )
 
     if marktrisiko == "Normale Märkte":
-        freiheitsgrade = 30
+        freiheitsgrade = 100
     elif marktrisiko == "Leicht erhöhte Extremereignisse":
         freiheitsgrade = 10
     else:
-        freiheitsgrade = 5
+        freiheitsgrade = 3
 
     st.caption(
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
