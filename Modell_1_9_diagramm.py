@@ -181,12 +181,19 @@ def interpretation_text(startwert, median, p5, p95):
 # ------------------------------------------------------------
 
 st.title("Finanz-Simulator")
-st.subheader("Basismodell: Portfolio-Simulation mit Aktien, Anleihen und t-verteilten Marktschocks")
+
+st.subheader("Stochastische Kapitalmarktsimulation auf Basis moderner finanzmathematischer Modelle")
+
+with st.expander("Aktuelles Simulationsmodell anzeigen"):
+    st.markdown(
+        "**Modell 1:** Stochastische Kapitalmarktsimulation auf Basis geometrischer Brownscher Bewegung "
+        "mit nicht-normalverteilten Marktschocks."
+    )
 
 st.write(
-    "Dieses Modell simuliert viele mögliche Zukunftsverläufe deines Vermögens. "
-    "Das Portfolio besteht aus Aktien und Anleihen. Rendite und Risiko ergeben sich aus "
-    "den eingegebenen Annahmen zu Rendite, Volatilität, Gewichtung und Korrelation."
+"Dieses Modell simuliert tausende mögliche Zukunftsverläufe deines Vermögens und zeigt, wie sich dein Portfolio unter realistischen Marktbedingungen entwickeln kann. "
+"Es bildet die Dynamik realer Kapitalmärkte ab – inklusive Schwankungen und Extremphasen. "
+"Die Ergebnisse basieren direkt auf deinen Annahmen zu Rendite, Volatilität, Gewichtung und Korrelation."
 )
 
 
