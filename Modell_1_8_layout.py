@@ -56,6 +56,7 @@ def simulate_t_gbm_portfolio(
     schritte_pro_jahr,
     simulationen,
     freiheitsgrade,
+    crash_faktor,
     monatliche_entnahme
 ):
     """
@@ -143,11 +144,12 @@ def simulate_t_gbm_portfolio(
 
         # t-Verteilung auf ungefähr Standardabweichung 1 skalieren.
         zufall = zufall / np.sqrt(freiheitsgrade / (freiheitsgrade - 2))
+        zufall = zufall * crash_faktor
 
         # Rendite des aktuellen Simulationsschritts.
         schritt_rendite = (
             (portfolio_rendite - 0.5 * portfolio_volatilitaet ** 2) * dt
-            + (portfolio_volatilitaet * crash_faktor) * np.sqrt(dt) * zufall
+            + portfolio_volatilitaet * np.sqrt(dt) * zufall
         )
 
         # Neuer Wert = alter Wert * exponentielle Rendite.
@@ -350,13 +352,12 @@ with eingabe_spalte:
     else:
         freiheitsgrade = 3
         crash_faktor = 1.25
+        
 
     st.caption(
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
-    st.caption(
-    "Im Modus 'starke Extremereignisse' werden Schwankungen zusätzlich verstärkt."
-    )
+   
 
     simulationen = icon_input(
         "👥",
@@ -446,7 +447,8 @@ if simulation_starten:
             schritte_pro_jahr=schritte_pro_jahr,
             simulationen=simulationen,
             freiheitsgrade=freiheitsgrade,
-            monatliche_entnahme=monatliche_entnahme
+            monatliche_entnahme=monatliche_entnahme,
+            crash_faktor=crash_faktor
         )
 
     endwerte = werte[-1, :]
