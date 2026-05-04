@@ -354,6 +354,9 @@ with eingabe_spalte:
     st.caption(
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
     )
+    st.caption(
+    "Im Modus 'starke Extremereignisse' werden Schwankungen zusätzlich verstärkt."
+    )
 
     simulationen = icon_input(
         "👥",
