@@ -524,7 +524,7 @@ if simulation_starten:
         # ------------------------------------------------------------
         # VISUALISIERUNG: Medianpfad + Unsicherheitsbereich
         # ------------------------------------------------------------
-
+        zeitachse = np.linspace(0, jahre, werte.shape[0])
         st.markdown("### Vermögensentwicklung")
 
         p20_pfad = np.percentile(werte, 20, axis=1)
