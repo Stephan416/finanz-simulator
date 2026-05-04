@@ -147,7 +147,7 @@ def simulate_t_gbm_portfolio(
         # Rendite des aktuellen Simulationsschritts.
         schritt_rendite = (
             (portfolio_rendite - 0.5 * portfolio_volatilitaet ** 2) * dt
-            + portfolio_volatilitaet * np.sqrt(dt) * zufall
+            + (portfolio_volatilitaet * crash_faktor) * np.sqrt(dt) * zufall
         )
 
         # Neuer Wert = alter Wert * exponentielle Rendite.
@@ -343,10 +343,13 @@ with eingabe_spalte:
 
     if marktrisiko == "Normale Märkte":
         freiheitsgrade = 100
+        crash_faktor = 1.0
     elif marktrisiko == "Leicht erhöhte Extremereignisse":
         freiheitsgrade = 10
+        crash_faktor = 1.1
     else:
         freiheitsgrade = 3
+        crash_faktor = 1.25
 
     st.caption(
         "Der Marktrisiko-Modus bestimmt, wie häufig außergewöhnlich starke Marktbewegungen auftreten."
